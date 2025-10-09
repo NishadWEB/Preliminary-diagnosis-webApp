@@ -1,0 +1,221 @@
+/* Contact Page Specific Styles - NEW ADDITION */
+.contact-hero {
+  text-align: center;
+  padding: 3rem 0;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.contact-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: #2E7D32;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.contact-hero p {
+  font-size: 1.3rem;
+  color: #1B5E20;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+  max-width: 1000px;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.contact-info {
+  background: white;
+  border-radius: 15px;
+  padding: 2.5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(123, 196, 127, 0.3);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.contact-info:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.contact-info-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(123, 196, 127, 0.3);
+}
+
+.contact-info-icon {
+  font-size: 2.2rem;
+  color: #5CA36D;
+}
+
+.contact-info-header h2 {
+  color: #2E7D32;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-item-icon {
+  font-size: 1.5rem;
+  color: #5CA36D;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.contact-item-content h3 {
+  color: #2E7D32;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.contact-item-content p {
+  color: #4C7A65;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.contact-item-content a {
+  color: #5CA36D;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item-content a:hover {
+  color: #2E7D32;
+  text-decoration: underline;
+}
+
+.contact-form {
+  background: white;
+  border-radius: 15px;
+  padding: 2.5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(123, 196, 127, 0.3);
+  transition: all 0.3s ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(123, 196, 127, 0.3);
+}
+
+.form-icon {
+  font-size: 2.2rem;
+  color: #5CA36D;
+}
+
+.form-header h2 {
+  color: #2E7D32;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2E7D32;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(123, 196, 127, 0.3);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #F8FDF9;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #5CA36D;
+  box-shadow: 0 0 0 2px rgba(92, 163, 109, 0.2);
+  background: white;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  background: linear-gradient(to bottom, #A8D5BA, #8BC34A);
+  color: #1B5E20;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to bottom, #7BC47F, #689F38);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.response-message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  display: none;
+}
+
+.response-message.success {
+  background: #E8F5E9;
+  color: #2E7D32;
+  border: 1px solid #A5D6A7;
+  display: block;
+}
+
+.response-message.error {
+  background: #FFEBEE;
+  color: #C62828;
+  border: 1px solid #EF9A9A;
+  display: block;
+}

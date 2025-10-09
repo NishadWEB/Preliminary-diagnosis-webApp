@@ -1,0 +1,19 @@
+{
+  "name": "major_project",
+  "version": "1.0.0",
+  "description": "mindset of building a PRODUCT by integration of ML algorithm.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "authors : { Nishad, Udaif, Shifan, Muzammil }",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  }
+}

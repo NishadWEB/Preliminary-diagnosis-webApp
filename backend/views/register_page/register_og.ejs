@@ -1,0 +1,83 @@
+<%- include('../headers/pre_login_header.ejs') %>
+
+<main>
+  <section class="auth-section">
+    <div class="auth-container">
+      <div class="auth-card">
+        <!-- Header with Role-specific Icon -->
+        <div class="auth-header">
+          <div class="auth-icon">
+            <% if (locals.role === 'patient') { %>
+              👤
+            <% } else { %>
+              🩺
+            <% } %>
+          </div>
+          <h1 class="auth-title">
+            Join as <%= locals.role === 'patient' ? 'Patient' : 'Doctor' %>
+          </h1>
+          <p class="auth-subtitle">
+            <% if (locals.role === 'patient') { %>
+              Create your patient account
+            <% } else { %>
+              Create your doctor account
+            <% } %>
+          </p>
+        </div>
+
+        <!-- Success Message (Hidden by default) -->
+        <div id="successMessage" class="success-message" style="display: none;">
+          <div class="success-icon">✅</div>
+          <h3>Registration Successful!</h3>
+          <p>Redirecting you to login page...</p>
+        </div>
+
+        <!-- Registration Form -->
+        <form class="auth-form" id="registerForm" action="/auth/register<%= role %>" method="POST">
+          <input type="hidden" name="role" value="<%= locals.role %>">
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" autocomplete="off" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required minlength="6">
+            <small class="form-hint">Must be at least 6 characters long</small>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+          </div>
+
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <span class="btn-icon">✨</span>
+              Create Account
+            </button>
+          </div>
+        </form>
+
+        <!-- Login Redirect -->
+        <div class="auth-redirect">
+          <p>Already have an account? 
+            <a href="/auth/login<%= locals.role === 'patient' ? 'Patient' : 'Doctor' %>" class="redirect-link">
+              Sign in here
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('../main/footer.ejs') %>
+
+
+
+<script src="/navbar/navbar.js"></script>
+<script src="/register/register.js"></script>
+</body>
+</html>

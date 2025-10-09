@@ -1,0 +1,42 @@
+<%- include('../headers/pre_login_header.ejs') %>
+
+<main>
+  <section class="patient-message">
+    <div class="message-container">
+        <div class="message-icon">🩺</div>
+        <h2 class="message-title">Your Health Journey Starts Here</h2>
+        <blockquote class="message-quote">
+            "Every great healthcare journey begins with a single step - and you've just taken it. Your wellbeing is our shared priority, and we're here to walk this path with you."
+        </blockquote>
+        
+        
+        <div class="message-cta">
+          <% if (locals.role) { %>
+            <!-- Show role-specific buttons -->
+            <div class="cta-buttons">
+              <a href="<%= role === 'doctor' ? '/auth/loginDoctor' : '/auth/loginPatient' %>" class="cta-btn login-cta-btn">
+                <span class="btn-icon">🔑</span>
+                <span class="btn-text">Login</span>
+              </a>
+              <a href="<%= role === 'doctor' ? '/auth/registerDoctor' : '/auth/registerPatient' %>" class="cta-btn register-cta-btn">
+                <span class="btn-icon">✨</span>
+                <span class="btn-text">Register</span>
+              </a>
+            </div>
+          <% }  %>
+            <!-- Show role selection buttons -->
+          
+        </div>
+    </div>
+  </section>
+</main>
+
+<%- include('../main/footer.ejs') %>
+
+
+
+<!-- <script src="/home/home-script.js"></script> -->
+<script src="/navbar/navbar.js"></script>
+
+</body>
+</html>

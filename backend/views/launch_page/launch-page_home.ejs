@@ -1,0 +1,92 @@
+
+<%- include('../headers/launch-header.ejs') %>
+<main>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Online Preliminary Diagnosis</h1>
+    <p>MediDiag connects patients and healthcarse professionals for efficient preliminary diagnosis and medical consultations.</p>
+    
+    <div class="role-selection">
+      <div class="role-card">
+        <div class="role-icon">👤</div>
+        <h3>For Patients</h3>
+        <p>Get preliminary diagnosis, connect with doctors, and manage your health records securely.</p>
+        <button class="role-btn" onclick="window.location.href= '/preLogin/home/selectRole/patient'">Continue as Patient</button>
+      </div>
+      
+      <div class="role-card">
+        <div class="role-icon">👨‍⚕️</div>
+        <h3>For Doctors</h3>
+        <p>Provide consultations, review cases, and expand your practice with our platform.</p>
+        <button class="role-btn"  onclick="window.location.href= '/preLogin/home/selectRole/doctor'">Continue as Doctor</button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="features">
+    <h2 class="section-title">Our Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure & Private</h3>
+        <p>Your medical data is protected with bank-level security and strict privacy controls.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Quick Diagnosis</h3>
+        <p>Get preliminary assessments in minutes, not days, with our intelligent system.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Expert Network</h3>
+        <p>Connect with verified healthcare professionals across various specialties.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Accessible Anywhere</h3>
+        <p>Use our platform on any device, anytime, with full functionality.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- How It Works Section -->
+  <section class="how-it-works">
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Sign Up</h3>
+        <p>Create your account as a patient or healthcare professional in just a few minutes.</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Describe Symptoms</h3>
+        <p>Patients can describe their symptoms using our guided questionnaire.</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Get Preliminary Analysis</h3>
+        <p>Our system provides an initial assessment based on the information provided.</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Connect with Professionals</h3>
+        <p>Schedule consultations with doctors for further evaluation and treatment plans.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('../main/footer.ejs') %>
+
+<script src="/navbar/navbar.js"></script>
+<!-- <script src="/role-selection.js"></script> -->
+</body>
+</html>
