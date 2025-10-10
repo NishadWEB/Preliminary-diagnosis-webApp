@@ -33,7 +33,7 @@ app.use("/preLogin", preLoginRoutes);
 
 app.use('/auth', patientRoutes);
 
-app.use('/legal', termsRoutes)
+app.use('/legal', termsRoutes);
 
 app.get("/", (req, res) => {
   res.render("launch_page/launch-page_home.ejs");
