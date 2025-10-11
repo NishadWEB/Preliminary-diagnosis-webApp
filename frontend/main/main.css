@@ -30,16 +30,6 @@ main {
   padding: 2rem;
 }
 
-h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1.5rem;
-  color: #2e7d32;
-  word-wrap: break-word;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-  line-height: 1.2;
-}
-
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -50,35 +40,3 @@ h1 {
     transform: translateY(0);
   }
 }
-
-
-/* Mobile Responsive */
-/* @media (max-width: 1185px) {
-  .auth-buttons {
-    margin-left: 0;
-    justify-content: center;
-    width: 100%;
-    margin-top: 1rem;
-  }
-  
-  .auth-btn {
-    flex: 1;
-    justify-content: center;
-    max-width: 150px;
-  }
-}
-
-@media (max-width: 768px) {
-  .auth-buttons {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  
-  .auth-btn {
-    max-width: 100%;
-  }
-  
-  .btn-text {
-    font-size: 0.9rem;
-  }
-} */
