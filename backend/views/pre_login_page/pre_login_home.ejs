@@ -3,11 +3,20 @@
 <main>
   <section class="patient-message">
     <div class="message-container">
+     <%   if(role === 'patient'){%>
         <div class="message-icon">🩺</div>
         <h2 class="message-title">Your Health Journey Starts Here</h2>
         <blockquote class="message-quote">
             "Every great healthcare journey begins with a single step - and you've just taken it. Your wellbeing is our shared priority, and we're here to walk this path with you."
         </blockquote>
+      <%  }else if(role === 'doctor'){%> 
+        <div class="message-icon">💼</div>
+        <h2 class="message-title">Empowering Your Medical Expertise</h2>
+        <blockquote class="message-quote">
+          "You are at the forefront of medicine. We are proud to provide the innovative tools that support your practice, enhance diagnostic accuracy, and help you deliver the next generation of healthcare."
+        </blockquote>
+     <%  } %>
+        
         
         
         <div class="message-cta">
