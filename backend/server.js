@@ -4,6 +4,12 @@ import http from "http";
 import dotenv from "dotenv";
 import path, { dirname }  from "path";
 import { fileURLToPath } from "url";
+import session from "express-session";
+import pg from 'pg';
+import passport from "passport";
+import {Strategy as localStratgey}  from 'passport-local';
+import pgSession from 'connect-pg-simple'
+
 import patientRoutes from "./routes/patientRoutes.js";
 import launchPageRoutes from "./routes/launchPageRoutes.js";
 import preLoginRoutes from "./routes/preLoginRoutes.js";
@@ -15,7 +21,31 @@ const app = express();
 const port = process.env.PORT || 3000;
 const server = http.createServer(app);
 const __dirname = dirname(fileURLToPath(import.meta.url));
-// global.userRole;
+
+const client = new pg.Client({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_SESSION,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+});
+
+client.connect();
+
+const PgSessionStore = pgSession(session);
+
+app.use(
+  session({
+    store: new PgSessionStore({
+      client: client,        
+      tableName: "session",  
+    }),
+    secret: process.env.SECRET_KEY,
+    resave: false,          
+    saveUninitialized: true, 
+    cookie: { maxAge: 24 * 60 * 60 * 1000 }, 
+  })
+);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
