@@ -18,6 +18,7 @@ import pg from "pg";
 import patientRoutes from "./routes/patientRoutes.js";
 import launchPageRoutes from "./routes/launchPageRoutes.js";
 import preLoginRoutes from "./routes/preLoginRoutes.js";
+import registerRoutes from './routes/registerRoutes.js'
 
 import pool from "./config/db.js";
 
@@ -119,7 +120,7 @@ app.use("/home", launchPageRoutes);
 
 app.use("/preLogin", preLoginRoutes);
 
-app.use("/auth", patientRoutes);
+app.use("/auth", registerRoutes);
 
 app.get("/secrets", (req,res) => {
   // console.log(req.user);

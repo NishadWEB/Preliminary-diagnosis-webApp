@@ -8,21 +8,13 @@
         <!-- Header with Role-specific Icon -->
         <div class="auth-header">
           <div class="auth-icon">
-            <% if (locals.role === 'patient') { %>
               👤
-            <% } else { %>
-              🩺
-            <% } %>
           </div>
           <h1 class="auth-title">
-            Join as <%= locals.role === 'patient' ? 'Patient' : 'Doctor' %>
+            Join as Patient
           </h1>
           <p class="auth-subtitle">
-            <% if (locals.role === 'patient') { %>
               Create your patient account
-            <% } else { %>
-              Create your doctor account
-            <% } %>
           </p>
         </div>
 
@@ -34,7 +26,7 @@
         </div>
 
         <!-- Registration Form -->
-        <form class="auth-form" id="registerForm" action="/Patient" method="POST">
+        <form class="auth-form" id="registerForm" action="Patient" method="POST">
           <input type="hidden" name="role" value="<%= locals.role %>">
           
           <div class="form-group">
@@ -76,7 +68,7 @@
         <!-- Login Redirect -->
         <div class="auth-redirect">
           <p>Already have an account? 
-            <a href="/auth/login<%= locals.role === 'patient' ? 'Patient' : 'Doctor' %>" class="redirect-link">
+            <a href="/auth/loginPatient" class="redirect-link">
               Sign in here
             </a>
           </p>
@@ -94,6 +86,6 @@
 
 
 <script src="/navbar/navbar.js"></script>
-<script src="/register/register.js"></script>
+<script src="/register/patientRegister.js"></script>
 </body>
 </html>
