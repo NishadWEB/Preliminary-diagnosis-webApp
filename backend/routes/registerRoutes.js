@@ -3,12 +3,12 @@ import {registerPatient , registerDoctor, getPatientRegisterPage, getDoctorRegis
 
 const router = express.Router();
 
-router.get('/registerPatient', getPatientRegisterPage);
-router.get('/registerDoctor', getDoctorRegisterPage);
+router.get('/patient', getPatientRegisterPage);
+router.get('/doctor', getDoctorRegisterPage);
 
 
-router.post('/registerPatient',registerPatient);
-router.post('/registerDoctor', registerDoctor);
+router.post('/patient',registerPatient);
+router.post('/doctor', registerDoctor);
 
 
 export default router;

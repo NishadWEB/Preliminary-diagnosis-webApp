@@ -1,4 +1,6 @@
 import pg from "pg";
+import dotenv from 'dotenv';
+dotenv.config();
 
 console.log('=== DB CONFIG DEBUG ===');
 console.log('DB_USER:', process.env.DB_USER);

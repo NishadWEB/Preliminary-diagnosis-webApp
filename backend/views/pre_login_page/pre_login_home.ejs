@@ -23,11 +23,11 @@
           <% if (locals.role) { %>
             <!-- Show role-specific buttons -->
             <div class="cta-buttons">
-              <a href="<%= role === 'doctor' ? '/auth/loginDoctor' : '/auth/loginPatient' %>" class="cta-btn login-cta-btn">
+              <a href="<%= role === 'doctor' ? '/auth/login/doctor' : '/auth/login/patient' %>" class="cta-btn login-cta-btn">
                 <span class="btn-icon">🔑</span>
                 <span class="btn-text">Login</span>
               </a>
-              <a href="<%= role === 'doctor' ? '/auth/registerDoctor' : '/auth/registerPatient' %>" class="cta-btn register-cta-btn">
+              <a href="<%= role === 'doctor' ? '/auth/register/doctor' : '/auth/register/patient' %>" class="cta-btn register-cta-btn">
                 <span class="btn-icon">✨</span>
                 <span class="btn-text">Register</span>
               </a>

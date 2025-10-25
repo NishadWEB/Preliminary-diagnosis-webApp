@@ -1,6 +1,5 @@
 //creating user (that is patient) and stroring in db 
 import bcrypt from 'bcrypt';
-import pg from "pg";
 import pool from '../config/db.js';
 
 async function hashPassword(password) {
