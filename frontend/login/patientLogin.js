@@ -93,10 +93,9 @@ function validateForm() {
 }
 
 // Real-time validation as user types (similar to register)
-// email.addEventListener("input", validateForm);
 password.addEventListener("input", validateForm);
 
-// Form submission (same pattern as register)
+// SINGLE form submission handler (removed duplicate)
 form.addEventListener("submit", function (event) {
     console.log('inside login event handler (client side)');
     event.preventDefault();
@@ -122,12 +121,12 @@ form.addEventListener("submit", function (event) {
         p_password: password.value
     };
 
-    console.log('Login attempt for:', loginData.email);
+    console.log('Login attempt for:', loginData.p_email);
     
     authenticatePatient(loginData, originalText);
 });
 
-// API call function (same pattern as register)
+// API call function
 async function authenticatePatient(loginData, originalText) {
     try {
         console.log('inside login try block (client side)');
@@ -146,11 +145,11 @@ async function authenticatePatient(loginData, originalText) {
         console.log('login data fetched (client side): ', data);
 
         if (response.ok) {
-            // Success case - show success animation (same as register)
-            showSuccessAnimation();
+            // Handle redirect based on profile completion status
+            handleLoginSuccess(data, originalText);
         } else {
-            // Failure case - show error message (same as register)
-            showFailureMessage("Login failed. Invalid email or password.");
+            // Failure case - show error message
+            showFailureMessage(data.message || "Login failed. Invalid email or password.");
             resetSubmitButton(originalText);
         }
     } catch (error) {
@@ -158,6 +157,32 @@ async function authenticatePatient(loginData, originalText) {
         showFailureMessage("Network error. Please check your connection and try again.");
         resetSubmitButton(originalText);
     }
+}
+
+// Handle successful login and redirect
+function handleLoginSuccess(data, originalText) {
+    // Show success message briefly
+    form.style.display = "none";
+    successMessage.style.display = "block";
+    successMessage.style.animation = "fadeIn 0.5s ease-in";
+
+    // Reset the submit button here as well
+    resetSubmitButton(originalText);
+
+    // Redirect based on profile completion status
+    setTimeout(() => {
+        if (data.profileComplete) {
+            // Profile complete - go to profile page in NEW TAB
+            window.open(`/patient/profile?patientId=${data.patientId}`, "_blank");
+        } else {
+            // Profile incomplete - go to setup wizard in NEW TAB
+            window.open(`/patient/profile?patientId=${data.patientId}`, "_blank");
+        }
+        
+        // Redirect current tab to login page
+        window.location.href = "/auth/login/patient";
+        
+    }, 1500);
 }
 
 // Reset submit button (same as register)
@@ -174,7 +199,7 @@ function showFailureMessage(message) {
             <span>${message}</span>
         </div>
     `;
-    failureMessage.style.display = "block";
+    failureMessage.style.display = 'block';
     
     // Auto-hide after 5 seconds (same as register)
     setTimeout(() => {
@@ -184,24 +209,7 @@ function showFailureMessage(message) {
 
 // Hide failure message (same as register)
 function hideFailureMessage() {
-    failureMessage.style.display = "none";
-}
-
-// Show success animation (same pattern as register)
-function showSuccessAnimation() {
-    // Hide form and show success message
-    form.style.display = "none";
-    successMessage.style.display = "block";
-
-    // Add fade-in animation
-    successMessage.style.animation = "fadeIn 0.5s ease-in";
-
-    // Redirect after 2 seconds (similar to register but to dashboard)
-    setTimeout(() => {
-        const role = form.getAttribute("action");
-        console.log('Login successful, redirecting to dashboard for role:', role);
-        window.location.href = '/patient/dashboard';
-    }, 2000);
+    failureMessage.style.display = 'none';
 }
 
 // Add CSS for fade-in animation (same as register)

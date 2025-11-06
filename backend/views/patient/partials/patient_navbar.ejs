@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediDiag - Patient Profile</title>
+    
+    <!-- Patient CSS Files -->
+    <link rel="stylesheet" href="/patient/css/patient-navbar.css">
+    <link rel="stylesheet" href="/patient/css/patient-footer.css">
+    <link rel="stylesheet" href="/patient/css/patient-profile.css">
+    <link rel="stylesheet" href="/patient/css/patient-modals.css">
+    <link rel="stylesheet" href="/patient/css/animation.css">
+</head>
+<body>
+    <!-- Main content container that gets blurred -->
+    <div class="content-container" id="contentContainer">
+<nav>
+  <div class="brand">MediDiag</div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="/patient/chatbot?patientId=<%= patientId %>" class="chatbot-link">
+      💬 ChatBot
+      <span class="chatbot-badge">AI</span>
+    </a>
+    <a href="/patient/profile?patientId=<%= patientId %>" class="active">👤 Profile</a>
+    <a href="#" id="logoutBtn">🚪 LogOut</a>
+  </div>
+
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</nav>

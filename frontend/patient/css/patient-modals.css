@@ -1,0 +1,506 @@
+/* Modal Styles for Patient Module */
+#firstLoginModal .modal-content::-webkit-scrollbar {
+  display: none;               /* hide scrollbar in Chrome, Edge, Safari */
+}
+
+/* Logout Confirmation Modal Styles */
+.logout-modal .modal-content {
+    max-width: 450px;
+    text-align: center;
+}
+
+.logout-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.logout-message {
+    color: #4C7A65;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    font-size: 1.1rem;
+}
+
+.logout-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-logout {
+    background: linear-gradient(135deg, #ff6b6b, #e74c3c);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-logout:hover {
+    background: linear-gradient(135deg, #ff5252, #c0392b);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn-stay {
+    background: #f5f5f5;
+    color: #666;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-stay:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Add this to ensure blur removal works properly */
+.content-container:not(.blurred) {
+    filter: none !important;
+}
+
+/* Force remove blur when modal is not active */
+.modal-overlay:not(.active) ~ .content-container {
+    filter: none !important;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #7BC47F;
+}
+
+.modal-header h2 {
+    color: #2E7D32;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #4C7A65;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal:hover {
+    background: #f5f5f5;
+    border-radius: 50%;
+}
+
+/* First Login Modal Specific Styles */
+.first-login-modal .modal-content {
+    max-width: 500px;
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.first-login-modal h2 {
+    color: #2E7D32;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.first-login-modal p {
+    text-align: center;
+    color: #4C7A65;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.required-field::after {
+    content: " *";
+    color: #e74c3c;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2E7D32;
+    font-weight: 600;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: #7BC47F;
+    box-shadow: 0 0 0 2px rgba(123, 196, 127, 0.2);
+    transform: translateY(-1px);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Smooth Dropdown Animation */
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%234C7A65' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem top 50%;
+    background-size: 0.65rem auto;
+    padding-right: 2.5rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-group select:hover {
+    border-color: #5CA36D;
+    transform: translateY(-1px);
+}
+
+.form-group select:active {
+    transform: translateY(0);
+}
+
+/* Custom dropdown options styling */
+.form-group select option {
+    padding: 0.8rem;
+    background: white;
+    color: #2E7D32;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.form-group select option:hover {
+    background: #E8F5E9 !important;
+}
+
+.form-group select option:checked {
+    background: #7BC47F;
+    color: white;
+}
+
+/* Required Field Validation */
+.form-group input:required:invalid, 
+.form-group select:required:invalid {
+    border-color: #ffebee;
+}
+
+.form-group input:required:valid, 
+.form-group select:required:valid {
+    border-color: #e8f5e9;
+}
+
+/* Error States */
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+.form-group .error-message {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    display: none;
+}
+
+.form-group.error .error-message {
+    display: block;
+}
+
+/* Success States */
+.form-group.success input,
+.form-group.success select,
+.form-group.success textarea {
+    border-color: #27ae60;
+    box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.2);
+}
+
+/* Modal Actions */
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.btn-cancel {
+    background: #f5f5f5;
+    color: #666;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background: #e0e0e0;
+    transform: translateY(-1px);
+}
+
+.btn-save {
+    background: linear-gradient(135deg, #7BC47F, #5CA36D);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-save:hover {
+    background: linear-gradient(135deg, #6bb472, #4c8f5a);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(92, 163, 109, 0.3);
+}
+
+.btn-save:active {
+    transform: translateY(0);
+}
+
+.btn-save:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Loading State */
+.btn-save.loading {
+    pointer-events: none;
+}
+
+.btn-save.loading .btn-text {
+    opacity: 0;
+}
+
+.btn-save.loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success State */
+.btn-save.success {
+    background: linear-gradient(135deg, #27ae60, #219653);
+}
+
+/* Error State */
+.btn-save.error {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+/* Form Message Styles */
+.form-message {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+    display: none;
+}
+
+.form-message.success {
+    background: #E8F5E9;
+    color: #2E7D32;
+    border: 1px solid #7BC47F;
+    display: block;
+}
+
+.form-message.error {
+    background: #FFEBEE;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    display: block;
+}
+
+/* Input Focus Animations */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    animation: inputFocus 0.3s ease;
+}
+
+@keyframes inputFocus {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* Button Loading Animation */
+@keyframes buttonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.98); }
+    100% { transform: scale(1); }
+}
+
+.btn-save.loading {
+    animation: buttonPulse 1s ease-in-out infinite;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .first-login-modal .modal-content {
+        max-width: 95%;
+    }
+    
+    .btn-cancel,
+    .btn-save {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 1rem;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+        padding: 0.7rem 0.8rem;
+    }
+}
+
+/* Dropdown Open Animation */
+.form-group select:focus {
+    transform: translateY(-1px) scale(1.01);
+}
+
+/* Placeholder Styling */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #a0a0a0;
+    transition: color 0.3s ease;
+}
+
+.form-group input:focus::placeholder,
+.form-group textarea:focus::placeholder {
+    color: #d0d0d0;
+}
+
+/* Field Highlight Animation */
+@keyframes fieldHighlight {
+    0% { background-color: transparent; }
+    50% { background-color: #f8fff8; }
+    100% { background-color: transparent; }
+}
+
+.form-group input:valid,
+.form-group select:valid,
+.form-group textarea:valid {
+    animation: fieldHighlight 0.5s ease;
+}

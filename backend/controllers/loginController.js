@@ -17,12 +17,11 @@ export const loginPatient = async (req, res) => {
 
     // get user 
     const response = await pool.query("SELECT * FROM patients WHERE p_email = $1",[p_email]);
-
     const result = response.rows[0];
 
     if (!result) {
       console.log("Patient not found");
-      return res.status(404).send({ message: "Patient not found" });
+      return res.status(404).json({ message: "Patient not found" });
     }
 
     // compare password
@@ -30,17 +29,25 @@ export const loginPatient = async (req, res) => {
 
     if (!valid) {
       console.log("Invalid password");
-      return res.status(401).send({ message: "Invalid password" });
+      return res.status(401).json({ message: "Invalid password" });
     }
 
-    // success
+    // SUCCESS - Return patient ID for frontend redirect
     console.log("✅ Password correct, login successful");
-    return res.status(200).send({message: "Login successful"});
+    
+    // Return patient ID and profile status for frontend to handle redirect
+    return res.status(200).json({
+      message: "Login successful",
+      patientId: result.p_id,
+      profileComplete: result.profile_complete || false
+    });
+    
   } catch (err) {
     console.error("Error during patient login:", err);
-    return res.status(500).send({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
+
 
 export const loginDoctor = async (req, res) => {
   try {

@@ -11,5 +11,4 @@ router.get('/features/:page' ,getFeaturesPage);
 router.get('/faqs/:page', getFaqsPage);
 router.get('/contact/:page', getContactPage);
 
-
 export default router;
